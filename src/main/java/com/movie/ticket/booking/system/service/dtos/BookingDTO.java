@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -22,7 +23,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Validated
+@Builder
 public class BookingDTO {
+
+    private UUID bookingId;
     @NotBlank(message = "user id is mandatory")
     private String userId;
     @NotNull(message = "movie id is mandatory")
@@ -36,4 +40,5 @@ public class BookingDTO {
     private LocalTime showTime;
     @Positive(message = "Booking amount must be a positive value")
     private Double bookingAmount;
+    private BookingStatus bookingStatus;
 }
