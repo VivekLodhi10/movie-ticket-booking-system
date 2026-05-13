@@ -23,7 +23,7 @@ public class BookingAPI {
 
     @PostMapping
     public ResponseEntity<ResponseDTO> createBooking(@Valid @RequestBody BookingDTO bookingDTO){
-        log.info("Entered into Booking API with JSON request: " + bookingDTO);
+        log.info("Entered into Booking API with JSON request {} " , bookingDTO.toString());
         ResponseDTO responseDTO = this.bookingService.createBooking(bookingDTO);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
